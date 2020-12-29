@@ -1,10 +1,8 @@
 <?php
-    $tasks = [
-        [
-            'id' => 15,
-            'title' => 'Got to the stpore'
-        ]
-    ]
+    $pdo = new PDO("mysql:host=localhost; dbname=test", "root", "");
+    $statement = $pdo->prepare("SELECT * FROM  tasks");
+    $result = $statement->execute();
+    $tasks = $statement->fetchAll(2);
 ?>
 <!DOCTYPE html>
 <html lang="en">
