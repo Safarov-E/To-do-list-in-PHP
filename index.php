@@ -1,3 +1,11 @@
+<?php
+    $tasks = [
+        [
+            'id' => 15,
+            'title' => 'Got to the stpore'
+        ]
+    ]
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,9 +29,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <?php foreach($tasks as $task):?>
                         <tr>
-                            <td>1</td>
-                            <td>Go to the store</td>
+                            <td><?=$task['id'];?></td>
+                            <td><?=$task['title'];?></td>
                             <td>
                                 <a href="#" class="btn btn-warning">
                                     Edit
@@ -31,6 +40,7 @@
                                 <a href="#" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
+                    <?php endforeach;?>
                     </tbody>
                 </table>
             </div>
