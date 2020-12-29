@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h1>All Tasks</h1>
-                <a href="#" class="btn btn-success">Add Task</a>
+                <a href="create.php" class="btn btn-success">Add Task</a>
                 <table class="table">
                     <thead>
                         <tr>
