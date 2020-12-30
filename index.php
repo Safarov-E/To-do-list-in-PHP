@@ -32,13 +32,13 @@
                             <td><?=$task['id'];?></td>
                             <td><?=$task['title'];?></td>
                             <td>
-                                <a href="show.php?id=<?= $task['id'];?>" class="btn btn-warning">
+                                <a href="show.php?id=<?= $task['id'];?>" class="btn btn-info">
                                     Show
                                 </a>
                                 <a href="edit.php?id=<?= $task['id'];?>" class="btn btn-warning">
                                     Edit
                                 </a>
-                                <a href="#" class="btn btn-danger">Delete</a>
+                                <a href="delete.php?id=<?= $task['id'];?>" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach;?>
