@@ -32,6 +32,9 @@
                             <td><?=$task['id'];?></td>
                             <td><?=$task['title'];?></td>
                             <td>
+                                <a href="show.php?id=<?= $task['id'];?>" class="btn btn-warning">
+                                    Show
+                                </a>
                                 <a href="#" class="btn btn-warning">
                                     Edit
                                 </a>
