@@ -1,8 +1,12 @@
 <?php
-    $pdo = new PDO("mysql:host=localhost; dbname=test", "root", "");
-    $statement = $pdo->prepare("DELETE FROM tasks WHERE id=:id");
-    $statement->bindParam(":id", $_GET['id']);
-    $statement->execute();
-    
-    header("Location: /"); exit;
+    function deleteTask($id) {
+        $pdo = new PDO("mysql:host=localhost; dbname=test", "root", "");
+        $statement = $pdo->prepare("DELETE FROM tasks WHERE id=:id");
+        $statement->bindParam(":id", $id);
+        $statement->execute();
+        
+        header("Location: /"); exit;
+    }
+    $id = $_GET['id'];
+    deleteTask($id);
 ?>
