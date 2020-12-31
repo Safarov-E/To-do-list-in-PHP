@@ -1,12 +1,13 @@
 <?php
-    function getTask() {
+    function getTask($id) {
         $pdo = new PDO("mysql:host=localhost; dbname=test", "root", "");
         $statement = $pdo->prepare("SELECT * FROM tasks WHERE id=:id");
-        $statement->bindParam(":id", $_GET['id']);
+        $statement->bindParam(":id", $id);
         $statement->execute();
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
-    $task = getTask();
+    $id = $_GET['id'];
+    $task = getTask($id);
 ?>
 <!DOCTYPE html>
 <html lang="en">
