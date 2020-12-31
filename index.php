@@ -1,8 +1,11 @@
 <?php
-    $pdo = new PDO("mysql:host=localhost; dbname=test", "root", "");
-    $statement = $pdo->prepare("SELECT * FROM  tasks");
-    $result = $statement->execute();
-    $tasks = $statement->fetchAll(2);
+    function getAllTasks() {
+        $pdo = new PDO("mysql:host=localhost; dbname=test", "root", "");
+        $statement = $pdo->prepare("SELECT * FROM  tasks");
+        $statement->execute();
+        return $statement->fetchAll(2);
+    }
+    $tasks = getAllTasks();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +41,12 @@
                                 <a href="edit.php?id=<?= $task['id'];?>" class="btn btn-warning">
                                     Edit
                                 </a>
-                                <a href="delete.php?id=<?= $task['id'];?>" class="btn btn-danger">Delete</a>
+                                <a 
+                                    onclick="return confirm('Вы действительно хотите удалить задачу?')"
+                                    href="delete.php?id=<?= $task['id'];?>" 
+                                    class="btn btn-danger">
+                                    Delete
+                                </a>
                             </td>
                         </tr>
                     <?php endforeach;?>
