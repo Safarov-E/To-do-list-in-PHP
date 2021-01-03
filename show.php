@@ -1,9 +1,8 @@
 <?php
-    $pdo = new PDO("mysql:host=localhost; dbname=test", "root", "");
-    $statement = $pdo->prepare("SELECT * FROM tasks WHERE id=:id");
-    $statement->bindParam(":id", $_GET['id']);
-    $statement->execute();
-    $task = $statement->fetch(PDO::FETCH_ASSOC);
+    require './database/QueryBuilder.php';
+    $db = new QueryBuilder;
+    $id = $_GET['id'];
+    $task = $db->getTask($id);
 ?>
 <!DOCTYPE html>
 <html lang="en">
