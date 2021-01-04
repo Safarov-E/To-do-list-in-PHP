@@ -1,6 +1,10 @@
 <?php
     require './database/QueryBuilder.php';
     $db = new QueryBuilder;
-    $db->addTask($_POST);
-    header("Location: /"); exit;
+    $data = [
+        "title" => $_POST['title'],
+        "content" => $_POST['content']
+    ];
+    $db->store("tasks", $data);
+    header("Location: /"); exit; 
 ?>
