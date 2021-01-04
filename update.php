@@ -6,6 +6,6 @@
         "title" => $_POST['title'],
         "content" => $_POST['content']
     ];
-    $db->updateTask($data);
+    $db->update("tasks", $data);
     header("Location: / "); exit;
 ?>
