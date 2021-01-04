@@ -1,7 +1,7 @@
 <?php
     require './database/QueryBuilder.php';
     $db = new QueryBuilder;
-    $tasks = $db->getAllTasks();
+    $tasks = $db->all("tasks");
 ?>
 <!DOCTYPE html>
 <html lang="en">

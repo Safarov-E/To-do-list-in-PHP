@@ -9,6 +9,11 @@
             $statement->execute();
             return $statement->fetchAll(2);
         }
+        function all($table) {
+            $statement = $this->pdo->prepare("SELECT * FROM  $table");
+            $statement->execute();
+            return $statement->fetchAll(2);
+        }
         function addTask($data) {
             $statement = $this->pdo->prepare("INSERT INTO tasks (title, content) VALUES (:title, :content)");
             $statement->execute($data);
