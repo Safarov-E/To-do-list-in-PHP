@@ -4,11 +4,6 @@
         function __construct() {
             $this->pdo = new PDO("mysql:host=localhost; dbname=test", "root", "");
         }
-        function getAllTasks() {
-            $statement = $this->pdo->prepare("SELECT * FROM  tasks");
-            $statement->execute();
-            return $statement->fetchAll(2);
-        }
         function all($table) {
             $statement = $this->pdo->prepare("SELECT * FROM  $table");
             $statement->execute();
@@ -18,8 +13,8 @@
             $statement = $this->pdo->prepare("INSERT INTO tasks (title, content) VALUES (:title, :content)");
             $statement->execute($data);
         }
-        function getTask($id) {
-            $statement = $this->pdo->prepare("SELECT * FROM tasks WHERE id=:id");
+        function getOne($table, $id) {
+            $statement = $this->pdo->prepare("SELECT * FROM $table WHERE id=:id");
             $statement->bindParam(":id", $id);
             $statement->execute();
             return $statement->fetch(PDO::FETCH_ASSOC);
@@ -28,8 +23,8 @@
             $statement = $this->pdo->prepare("UPDATE tasks SET title=:title, content=:content WHERE id=:id");
             $statement->execute($data);
         }
-        function deleteTask($id) {
-            $statement = $this->pdo->prepare("DELETE FROM tasks WHERE id=:id");
+        function delete($table, $id) {
+            $statement = $this->pdo->prepare("DELETE FROM $table WHERE id=:id");
             $statement->bindParam(":id", $id);
             $statement->execute();
         }
